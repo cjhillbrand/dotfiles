@@ -16,17 +16,8 @@ return require('packer').startup(function(use)
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
 
-    require('rose-pine').setup({
-        --- @usage 'auto'|'main'|'moon'|'dawn'
-        variant = 'moon',
-        --- @usage 'main'|'moon'|'dawn'
-        dark_variant = 'moon'
-    })
-
-    use({ 'rose-pine/neovim', as = 'rose-pine' })
-
-    vim.cmd('colorscheme rose-pine')
-
+    use({ 'catppuccin/nvim', as = 'catppuccin' })
+    vim.cmd('colorscheme catppuccin-mocha')
 
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
     use('theprimeagen/harpoon')
