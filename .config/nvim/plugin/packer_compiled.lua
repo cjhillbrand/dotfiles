@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/Users/cjhillbrand/.cache/nvim/packer_hererocks/2.1.1707061634/share/lua/5.1/?.lua;/Users/cjhillbrand/.cache/nvim/packer_hererocks/2.1.1707061634/share/lua/5.1/?/init.lua;/Users/cjhillbrand/.cache/nvim/packer_hererocks/2.1.1707061634/lib/luarocks/rocks-5.1/?.lua;/Users/cjhillbrand/.cache/nvim/packer_hererocks/2.1.1707061634/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/Users/cjhillbrand/.cache/nvim/packer_hererocks/2.1.1707061634/lib/lua/5.1/?.so"
+local package_path_str = "/Users/cjhillbrand/.cache/nvim/packer_hererocks/2.1.1765228720/share/lua/5.1/?.lua;/Users/cjhillbrand/.cache/nvim/packer_hererocks/2.1.1765228720/share/lua/5.1/?/init.lua;/Users/cjhillbrand/.cache/nvim/packer_hererocks/2.1.1765228720/lib/luarocks/rocks-5.1/?.lua;/Users/cjhillbrand/.cache/nvim/packer_hererocks/2.1.1765228720/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/Users/cjhillbrand/.cache/nvim/packer_hererocks/2.1.1765228720/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -79,6 +79,11 @@ _G.packer_plugins = {
     path = "/Users/cjhillbrand/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["actions-preview.nvim"] = {
+    loaded = true,
+    path = "/Users/cjhillbrand/.local/share/nvim/site/pack/packer/start/actions-preview.nvim",
+    url = "https://github.com/aznhe21/actions-preview.nvim"
+  },
   catppuccin = {
     loaded = true,
     path = "/Users/cjhillbrand/.local/share/nvim/site/pack/packer/start/catppuccin",
@@ -94,11 +99,6 @@ _G.packer_plugins = {
     path = "/Users/cjhillbrand/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/theprimeagen/harpoon"
   },
-  ["lsp-zero.nvim"] = {
-    loaded = true,
-    path = "/Users/cjhillbrand/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
-    url = "https://github.com/VonHeikemen/lsp-zero.nvim"
-  },
   ["markdown-preview.nvim"] = {
     loaded = true,
     path = "/Users/cjhillbrand/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim",
@@ -108,6 +108,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/cjhillbrand/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
     url = "https://github.com/williamboman/mason-lspconfig.nvim"
+  },
+  ["mason-registry"] = {
+    loaded = true,
+    path = "/Users/cjhillbrand/.local/share/nvim/site/pack/packer/start/mason-registry",
+    url = "https://github.com/mason-org/mason-registry"
   },
   ["mason.nvim"] = {
     loaded = true,
@@ -129,18 +134,13 @@ _G.packer_plugins = {
     path = "/Users/cjhillbrand/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
-  ["nvim-metals"] = {
-    loaded = true,
-    path = "/Users/cjhillbrand/.local/share/nvim/site/pack/packer/start/nvim-metals",
-    url = "https://github.com/scalameta/nvim-metals"
-  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/Users/cjhillbrand/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["obsidian.nvim"] = {
-    config = { "\27LJ\2\nÑ\1\0\0\5\0\b\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0004\3\3\0005\4\3\0>\4\1\3=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\vpicker\1\0\1\tname\19telescope.nvim\15workspaces\1\0\2\vpicker\0\15workspaces\0\1\0\2\tpath-$HOME/second-brain/second-brain/personal\tname\rpersonal\nsetup\robsidian\frequire\0" },
+    config = { "\27LJ\2\nÑ\1\0\0\5\0\b\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0004\3\3\0005\4\3\0>\4\1\3=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\vpicker\1\0\1\tname\19telescope.nvim\15workspaces\1\0\2\vpicker\0\15workspaces\0\1\0\2\tname\rpersonal\tpath-$HOME/second-brain/second-brain/personal\nsetup\robsidian\frequire\0" },
     loaded = true,
     path = "/Users/cjhillbrand/.local/share/nvim/site/pack/packer/start/obsidian.nvim",
     url = "https://github.com/epwalsh/obsidian.nvim"
@@ -185,7 +185,7 @@ _G.packer_plugins = {
 time([[Defining packer_plugins]], false)
 -- Config for: obsidian.nvim
 time([[Config for obsidian.nvim]], true)
-try_loadstring("\27LJ\2\nÑ\1\0\0\5\0\b\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0004\3\3\0005\4\3\0>\4\1\3=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\vpicker\1\0\1\tname\19telescope.nvim\15workspaces\1\0\2\vpicker\0\15workspaces\0\1\0\2\tpath-$HOME/second-brain/second-brain/personal\tname\rpersonal\nsetup\robsidian\frequire\0", "config", "obsidian.nvim")
+try_loadstring("\27LJ\2\nÑ\1\0\0\5\0\b\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0004\3\3\0005\4\3\0>\4\1\3=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\vpicker\1\0\1\tname\19telescope.nvim\15workspaces\1\0\2\vpicker\0\15workspaces\0\1\0\2\tname\rpersonal\tpath-$HOME/second-brain/second-brain/personal\nsetup\robsidian\frequire\0", "config", "obsidian.nvim")
 time([[Config for obsidian.nvim]], false)
 
 _G._packer.inside_compile = false

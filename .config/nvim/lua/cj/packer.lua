@@ -42,25 +42,23 @@ return require('packer').startup(function(use)
             }
         })
 
-    use {
-        'VonHeikemen/lsp-zero.nvim',
-        branch = 'v3.x',
-        requires = {
-            --- Uncomment the two plugins below if you want to manage the language servers from neovim
-            { 'williamboman/mason.nvim' },
-            { 'williamboman/mason-lspconfig.nvim' },
+    --- Uncomment the two plugins below if you want to manage the language servers from neovim
+    use({
+        'williamboman/mason.nvim',
+        requires = 'mason-org/mason-registry'
+    })
 
-            -- LSP Support
-            { 'neovim/nvim-lspconfig' },
-            -- Autocompletion
-            { 'hrsh7th/nvim-cmp' },
-            { 'hrsh7th/cmp-nvim-lsp' },
-            { 'L3MON4D3/LuaSnip' },
-        }
-    }
+    use('williamboman/mason-lspconfig.nvim')
+
+    -- LSP Support
+    use('neovim/nvim-lspconfig')
+    -- Autocompletion
+    use('hrsh7th/nvim-cmp')
+    use('hrsh7th/cmp-nvim-lsp')
+    use('L3MON4D3/LuaSnip')
 
     use('mfussenegger/nvim-jdtls')
-    use('scalameta/nvim-metals')
+    use('aznhe21/actions-preview.nvim')
 
     -- install without yarn or npm
     use({

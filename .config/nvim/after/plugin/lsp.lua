@@ -1,29 +1,39 @@
-local lsp_zero = require('lsp-zero')
+-- Add cmp_nvim_lsp capabilities settings to lspconfig
+-- This should be executed before you configure any language server
+local lspconfig_defaults = require('lspconfig').util.default_config
+lspconfig_defaults.capabilities = vim.tbl_deep_extend(
+  'force',
+  lspconfig_defaults.capabilities,
+  require('cmp_nvim_lsp').default_capabilities()
+)
 
-lsp_zero.on_attach(function(client, bufnr)
-  -- see :help lsp-zero-keybindings
-  -- to learn the available actions
-  lsp_zero.default_keymaps({buffer = bufnr})
-end)
-
----
--- Create the configuration for metals
----
-local metals_config = require('metals').bare_config()
-metals_config.capabilities = lsp_zero.get_capabilities()
-
----
--- Autocmd that will actually be in charging of starting metals
----
-local metals_augroup = vim.api.nvim_create_augroup('nvim-metals', {clear = true})
-vim.api.nvim_create_autocmd('FileType', {
-  group = metals_augroup,
-  pattern = {'scala', 'sbt', 'java'},
-  callback = function()
-    require('metals').initialize_or_attach(metals_config)
-  end
+-- This is where you enable features that only work
+-- if there is a language server active in the file
+vim.api.nvim_create_autocmd('LspAttach', {
+  desc = 'LSP actions',
+  callback = function(event)
+    local opts = {buffer = event.buf}
+    vim.keymap.set('n', 'K', function() vim.diagnostic.open_float() end, opts)
+  end,
 })
 
-vim.keymap.set("n", "<C-.>", '<cmd>lua vim.lsp.buf.code_action()<CR>')
+require('mason').setup({})
+require('mason-lspconfig').setup()
 
+local cmp = require('cmp')
 
+cmp.setup({
+  sources = {
+    {name = 'nvim_lsp'},
+  },
+  snippet = {
+    expand = function(args)
+      -- You need Neovim v0.10 to use vim.snippet
+      vim.snippet.expand(args.body)
+    end,
+  },
+  mapping = cmp.mapping.preset.insert({}),
+})
+
+local preview = require('actions-preview')
+vim.keymap.set('n', '>', function() preview.code_actions() end)
