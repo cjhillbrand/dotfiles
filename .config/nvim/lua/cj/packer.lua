@@ -59,7 +59,13 @@ return require('packer').startup(function(use)
     use('L3MON4D3/LuaSnip')
 
     use('mfussenegger/nvim-jdtls')
-    use('mfussenegger/nvim-dap')
+    use({
+        'rcarriga/nvim-dap-ui',
+        requires = {
+            'nvim-neotest/nvim-nio',
+            'mfussenegger/nvim-dap'
+        }
+    })
     use('aznhe21/actions-preview.nvim')
 
     -- install without yarn or npm
