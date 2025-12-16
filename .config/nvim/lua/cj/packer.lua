@@ -49,6 +49,7 @@ return require('packer').startup(function(use)
     })
 
     use('williamboman/mason-lspconfig.nvim')
+    use('williamboman/mason-nvim-dap.nvim')
 
     -- LSP Support
     use('neovim/nvim-lspconfig')
@@ -58,6 +59,7 @@ return require('packer').startup(function(use)
     use('L3MON4D3/LuaSnip')
 
     use('mfussenegger/nvim-jdtls')
+    use('mfussenegger/nvim-dap')
     use('aznhe21/actions-preview.nvim')
 
     -- install without yarn or npm

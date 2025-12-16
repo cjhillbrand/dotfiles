@@ -13,18 +13,14 @@ local function get_jdtls()
 end
 
 local function get_bundles()
-    local java_debug_path =  vim.fn.exepath("java-debug-adapter")
-
+    local mason_path = vim.fn.resolve(vim.env.MASON .. '/packages')
     local bundles = {
-        vim.fn.glob(java_debug_path .. "/extension/server/com.microsoft.java.debug.plugin-*.jar", 1)
+        vim.fn.glob(mason_path .. "/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar", 1)
     }
 
-    -- Obtain the full path to the directory where Mason has downloaded the Java Test binaries
-    local java_test_path = vim.fn.exepath('java-test')
     -- Add all of the Jars for running tests in debug mode to the bundles list
-     vim.list_extend(bundles, vim.split(vim.fn.glob(java_test_path .. "/extension/server/*.jar", 1), "\n"))
-
-     return bundles
+    vim.list_extend(bundles, vim.split(vim.fn.glob(mason_path .. "/java-test/extension/server/*.jar", 1), "\n"))
+    return bundles
 end
 
 local function get_workspace()
@@ -54,7 +50,7 @@ local function setup_jdtls()
 
     -- Determine the root directory of the project by looking for these specific markers
     local root_dir = jdtls.setup.find_root({ '.git', 'mvnw', 'gradlew', 'pom.xml', 'build.gradle' });
-    
+
     -- Tell our JDTLS language features it is capable of
     local capabilities = {
         workspace = {

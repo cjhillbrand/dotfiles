@@ -19,6 +19,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 require('mason').setup({})
 require('mason-lspconfig').setup()
+require('mason-nvim-dap').setup({
+    ensure_installed = { "java-debug-adapter", "java-test" }
+})
+
 
 local cmp = require('cmp')
 
@@ -37,3 +41,10 @@ cmp.setup({
 
 local preview = require('actions-preview')
 vim.keymap.set('n', '>', function() preview.code_actions() end)
+vim.keymap.set('n', '<leader>ch', vim.lsp.buf.hover)
+vim.keymap.set('n', '<leader>cd', vim.lsp.buf.definition)
+vim.keymap.set('n', '<leader>cR', vim.lsp.buf.rename)
+
+-- Some JDTLS key remaps
+vim.keymap.set('n', '<leader>JT', "<Cmd> lua require('jdtls').test_class()<CR>", { desc = "[J]ava [T]est Class" })
+vim.keymap.set('n', '<leader>JC', "<Cmd> lua require('jdtls').compile()<CR>", { desc = "[J]ava [T]est Class" })

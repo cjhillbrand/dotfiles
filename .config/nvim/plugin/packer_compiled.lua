@@ -109,6 +109,11 @@ _G.packer_plugins = {
     path = "/Users/cjhillbrand/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
     url = "https://github.com/williamboman/mason-lspconfig.nvim"
   },
+  ["mason-nvim-dap.nvim"] = {
+    loaded = true,
+    path = "/Users/cjhillbrand/.local/share/nvim/site/pack/packer/start/mason-nvim-dap.nvim",
+    url = "https://github.com/williamboman/mason-nvim-dap.nvim"
+  },
   ["mason-registry"] = {
     loaded = true,
     path = "/Users/cjhillbrand/.local/share/nvim/site/pack/packer/start/mason-registry",
@@ -123,6 +128,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/cjhillbrand/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
+  },
+  ["nvim-dap"] = {
+    loaded = true,
+    path = "/Users/cjhillbrand/.local/share/nvim/site/pack/packer/start/nvim-dap",
+    url = "https://github.com/mfussenegger/nvim-dap"
   },
   ["nvim-jdtls"] = {
     loaded = true,
@@ -140,7 +150,7 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["obsidian.nvim"] = {
-    config = { "\27LJ\2\nÑ\1\0\0\5\0\b\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0004\3\3\0005\4\3\0>\4\1\3=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\vpicker\1\0\1\tname\19telescope.nvim\15workspaces\1\0\2\vpicker\0\15workspaces\0\1\0\2\tname\rpersonal\tpath-$HOME/second-brain/second-brain/personal\nsetup\robsidian\frequire\0" },
+    config = { "\27LJ\2\nÑ\1\0\0\5\0\b\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0004\3\3\0005\4\3\0>\4\1\3=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\vpicker\1\0\1\tname\19telescope.nvim\15workspaces\1\0\2\15workspaces\0\vpicker\0\1\0\2\tname\rpersonal\tpath-$HOME/second-brain/second-brain/personal\nsetup\robsidian\frequire\0" },
     loaded = true,
     path = "/Users/cjhillbrand/.local/share/nvim/site/pack/packer/start/obsidian.nvim",
     url = "https://github.com/epwalsh/obsidian.nvim"
@@ -185,7 +195,7 @@ _G.packer_plugins = {
 time([[Defining packer_plugins]], false)
 -- Config for: obsidian.nvim
 time([[Config for obsidian.nvim]], true)
-try_loadstring("\27LJ\2\nÑ\1\0\0\5\0\b\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0004\3\3\0005\4\3\0>\4\1\3=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\vpicker\1\0\1\tname\19telescope.nvim\15workspaces\1\0\2\vpicker\0\15workspaces\0\1\0\2\tname\rpersonal\tpath-$HOME/second-brain/second-brain/personal\nsetup\robsidian\frequire\0", "config", "obsidian.nvim")
+try_loadstring("\27LJ\2\nÑ\1\0\0\5\0\b\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0004\3\3\0005\4\3\0>\4\1\3=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\vpicker\1\0\1\tname\19telescope.nvim\15workspaces\1\0\2\15workspaces\0\vpicker\0\1\0\2\tname\rpersonal\tpath-$HOME/second-brain/second-brain/personal\nsetup\robsidian\frequire\0", "config", "obsidian.nvim")
 time([[Config for obsidian.nvim]], false)
 
 _G._packer.inside_compile = false
