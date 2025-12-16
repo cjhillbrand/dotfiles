@@ -47,4 +47,5 @@ vim.keymap.set('n', '<leader>cR', vim.lsp.buf.rename)
 
 -- Some JDTLS key remaps
 vim.keymap.set('n', '<leader>JT', "<Cmd> lua require('jdtls').test_class()<CR>", { desc = "[J]ava [T]est Class" })
+vim.keymap.set('n', '<leader>Jt', "<Cmd> lua require('jdtls').test_nearest_method()<CR>", { desc = "[J]ava [T]est Class" })
 vim.keymap.set('n', '<leader>JC', "<Cmd> lua require('jdtls').compile()<CR>", { desc = "[J]ava [T]est Class" })
